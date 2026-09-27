@@ -1,0 +1,13 @@
+#!/bin/sh
+# Trava do repositorio publico: roda antes de todo commit. Ligada por
+#   git config core.hooksPath .githooks
+# Nunca chamar `python` pelo nome (atalho WindowsApps vaza memoria): usa a .venv.
+RAIZ="$(git rev-parse --show-toplevel)"
+PY="$RAIZ/.venv/Scripts/python.exe"
+[ -x "$PY" ] || PY="$RAIZ/.venv/bin/python"
+if [ ! -x "$PY" ]; then
+  echo "pre-commit: falta a .venv do projeto; commit barrado." >&2
+  exit 1
+fi
+"$PY" "$RAIZ/verificar_site.py" --staged || exit 1
+"$PY" -m pytest -q "$RAIZ/tests" || exit 1

@@ -1,0 +1,22 @@
+# Repositorio PUBLICO. Por padrao, nada de ambiente, segredo, dado ou log entra aqui.
+.venv/
+__pycache__/
+.pytest_cache/
+.claude/
+.env
+.env.*
+*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*secret*
+*token*
+*senha*
+*credencia*
+Thumbs.db
+desktop.ini
