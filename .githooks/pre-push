@@ -1,0 +1,8 @@
+#!/bin/sh
+# Ultima barreira local: confere TODOS os commits que vao sair (autor, committer,
+# mensagem e arquivos), inclusive os criados por cherry-pick, rebase ou --no-verify.
+RAIZ="$(git rev-parse --show-toplevel)"
+PY="$RAIZ/.venv/Scripts/python.exe"
+[ -x "$PY" ] || PY="$RAIZ/.venv/bin/python"
+[ -x "$PY" ] || { echo "pre-push: falta a .venv do projeto; push barrado." >&2; exit 1; }
+exec "$PY" "$RAIZ/verificar_site.py" --pre-push

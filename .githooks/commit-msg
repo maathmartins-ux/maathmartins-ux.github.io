@@ -1,0 +1,7 @@
+#!/bin/sh
+# A mensagem de commit tambem e publica: passa pelos mesmos padroes da trava.
+RAIZ="$(git rev-parse --show-toplevel)"
+PY="$RAIZ/.venv/Scripts/python.exe"
+[ -x "$PY" ] || PY="$RAIZ/.venv/bin/python"
+[ -x "$PY" ] || { echo "commit-msg: falta a .venv do projeto; commit barrado." >&2; exit 1; }
+exec "$PY" "$RAIZ/verificar_site.py" --mensagem "$1"

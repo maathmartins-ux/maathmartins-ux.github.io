@@ -1,22 +1,17 @@
-# Repositorio PUBLICO. Por padrao, nada de ambiente, segredo, dado ou log entra aqui.
-.venv/
-__pycache__/
-.pytest_cache/
-.claude/
-.env
-.env.*
-*.json
-*.pem
-*.key
-*.p12
-*.pfx
-*.sqlite
-*.sqlite3
-*.db
-*.log
-*secret*
-*token*
-*senha*
-*credencia*
-Thumbs.db
-desktop.ini
+# Repositorio PUBLICO em lista branca: tudo e ignorado, exceto o que esta listado.
+# Arquivo novo exige editar esta lista E a LISTA_BRANCA do verificar_site.py.
+/*
+!/.gitignore
+!/.gitattributes
+!/.githooks/
+!/docs/
+!/tests/
+!/README.md
+!/pytest.ini
+!/verificar_site.py
+/docs/*
+!/docs/*.html
+!/docs/*.css
+!/docs/.nojekyll
+/tests/*
+!/tests/test_*.py
