@@ -231,6 +231,6 @@ def test_repositorio_real_passa_na_trava():
 
 
 def test_paginas_reais_passam_no_parser():
-    for pagina in ("docs/index.html", "docs/privacidade.html"):
+    for pagina in ("docs/index.html", "docs/privacidade.html", "docs/radar-privacidade.html"):
         texto = (V.RAIZ / pagina).read_text(encoding="utf-8")
         assert V.problemas_de_html(pagina, texto) == [], pagina
